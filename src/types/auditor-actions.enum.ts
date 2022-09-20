@@ -1,0 +1,8 @@
+export const AUDITOR_ACTION_STATUS = {
+    PENDING : 'PENDING',
+    SUBMITTED: 'SUBMITTED',
+    APPROVED: 'APPROVED',
+    REJECTED: 'REJECTED',
+    REWORK: 'REWORK',
+  };
+  

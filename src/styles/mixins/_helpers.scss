@@ -1,0 +1,153 @@
+@mixin font($family, $path, $weight, $style){
+  font-family: $family;
+  src:local($family),url($path + ".svg");
+  src:url($path + ".eot?#iefix") format("embedded-opentype"),
+      url($path + ".woff") format("woff"),
+      url($path + ".ttf") format("truetype"),
+      url($path + ".svg#dripicons-v2") format("svg");
+  font-weight: $weight;
+  font-style: $style;
+}
+
+@mixin font-woff($family, $path, $weight, $style){
+  font-family: $family;
+  src:local($family), url($path + ".woff") format("woff"), url($path + ".woff2") format("woff2");
+  font-weight: $weight;
+  font-style: $style;
+}
+
+@mixin font-otf($family, $path, $weight, $style){
+  font-family: $family;
+  src:local($family), url($path + ".otf") format("truetype");
+  font-weight: $weight;
+  font-style: $style;
+}
+
+@mixin weight(){
+  @each $weight in $weights{
+    .w#{$weight} {
+      font-weight: $weight !important;
+    }
+  }
+}
+
+@mixin font-sizes(){
+  @each $name, $size in $font-sizes {
+    .f#{$name} {
+      font-size: #{$size}px;
+    }
+  }
+}
+
+@mixin font-family {
+  @font-face {
+    @include font-woff('Manrope', '../../assets/fonts/manrope/400', 400, normal);
+  }
+
+  @font-face {
+    @include font-woff('Manrope', '../../assets/fonts/manrope/500', 500, normal);
+  }
+
+  @font-face {
+    @include font-woff('Manrope', '../../assets/fonts/manrope/600', 600, normal);
+  }
+  
+  @font-face {
+    @include font-woff('Manrope', '../../assets/fonts/manrope/700', 700, normal);
+  }
+  
+  @font-face {
+    @include font-woff('Manrope', '../../assets/fonts/manrope/900', 900, normal);
+  }
+
+  @font-face {
+    @include font-otf('Material Icons', '../../assets/fonts/material-icon/round', 400, normal);
+  }
+}
+
+@mixin colors {
+  .clr-white {
+    color: $white;
+  }
+
+  @each $name, $value in $colors {
+    .clr-#{$name} {
+      color: $value;
+    }
+    a.clr-#{$name} {
+      color: $value;
+
+      &:hover {
+        color: darken($value, 15);
+      }
+    }
+  }
+}
+
+@mixin bg {
+  .bg-white {
+    background-color: $white;
+  }
+
+  @each $name, $value in $colors {
+    .bg-#{$name} {
+      background-color: $value;
+    }
+  }
+}
+
+@mixin button {
+
+  .btn-default {
+    background-color: $n5;
+    border: none;
+    color: $n75;
+
+    &:hover, &:focus {
+      background-color: $n5;
+      border: none;
+      color: $n75;
+    }
+
+    &:disabled {
+
+      &:hover, &:focus {
+        opacity: 1;
+      }
+    }
+  }
+
+  @each $name, $color in $button-colors {
+    .btn-#{$name} {
+      background-color: map-get($color, "0");
+      background-image: linear-gradient(180deg, map-get($color, "0") 0%, map-get($color, "1") 100%);
+      box-shadow: 0 3px 6px rgba(map-get($color, "0"), 0.16);
+      border: none;
+      color: $white;
+
+      &:hover, &:focus {
+        background-color: map-get($color, 0);
+        background-image: linear-gradient(180deg, map-get($color, "0") 0%, map-get($color, "1") 100%);
+        box-shadow: 0 3px 6px rgba(map-get($color, "0"), 0.16);
+        color: $white;
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        background-color: map-get($color, 0);
+        background-image: linear-gradient(180deg, map-get($color, "0") 0%, map-get($color, "1") 100%);
+        box-shadow: 0 3px 6px rgba(map-get($color, "0"), 0.16);
+        color: $white;
+        pointer-events: none;
+
+        &:hover, &:focus {
+          background-color: map-get($color, 0);
+          background-image: linear-gradient(180deg, map-get($color, "0") 0%, map-get($color, "1") 100%);
+          box-shadow: 0 3px 6px rgba(map-get($color, "0"), 0.16);
+          color: $white;
+        }
+      }
+    }
+    
+  }
+}

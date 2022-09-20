@@ -1,0 +1,46 @@
+<div class="header">
+  <div class="header-toggle">
+    <span
+    class="trigger"
+    nz-icon
+    [nzType]="expanded ? 'menu-unfold' : 'menu-fold'"
+    (click)="onToggleMenu()"
+    ></span>
+  </div>
+    
+  <div class="header-actions">
+      Adminaaa
+  </div>
+  <div class = "subhead">
+    <span nz-icon nzType="whats-app" nzTheme="outline" ></span>
+    <span nz-icon nzType="bell" nzTheme="outline"></span>
+
+
+  </div>
+  <!-- <div class="right">
+    <div class="notification" [matMenuTriggerFor]="menu">
+    <mat-icon matBadge="15" >notifications</mat-icon>
+
+    <mat-menu #menu="matMenu" class="notification-content">
+      <div class="notification-header">
+          <div class="title">Notifications</div>
+          <div class="count">{{unreadNotificationCount}} new</div>
+      </div>
+      <div  *ngFor="let notification of notifications" >
+        <div class="item" (click)="readOne(notification.id)">
+          <div class="title">{{notification.message}}</div>
+          <mat-icon *ngIf="!notification.isRead" >circle</mat-icon>
+        </div>
+      </div>
+      <div class="clear-notification" (click)="readAll()">
+        <mat-icon>
+          delete_outline
+        </mat-icon>
+        <span>Clear all notifications</span>
+      </div>
+    </mat-menu>
+
+    </div>
+  </div> -->
+</div>
+

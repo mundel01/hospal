@@ -1,0 +1,56 @@
+<!-- <div
+  class="layout"
+  [ngClass]="{
+    hasSidenav: loggedIn,
+    expanded: expanded,
+    dark: theme === 'dark'
+  }"
+>
+  <div class="sidenav" *ngIf="loggedIn">
+    <app-side-nav
+      [theme]="theme"
+      (onToggle)="handleSidenavToggle()"
+      [expanded]="expanded"
+    ></app-side-nav>
+  </div>
+  <app-header *ngIf="loggedIn"></app-header>
+
+  <div class="page bgn5">
+    <div class="route-wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div> -->
+
+<div class="layout">
+  <nz-layout>
+    <nz-sider nzCollapsible [(nzCollapsed)]="expanded" [nzTrigger]="null" nzTheme="light">
+      <app-side-nav
+        [theme]="theme"
+        (onToggle)="handleSidenavToggle()"
+        [expanded]="expanded"
+      ></app-side-nav>
+    </nz-sider>
+
+
+
+    <nz-layout>
+      <nz-header>
+        <app-header *ngIf="loggedIn" (onToggle)="expanded = !expanded"></app-header>
+      </nz-header>
+      
+      <nz-content>
+        <app-page-nav></app-page-nav>
+        <div class="inner-content">
+          <div class="page bgn5">
+            <div class="route-wrapper">
+              <router-outlet></router-outlet>
+            </div>
+          </div>
+        </div>
+        <nz-footer>All Rights Reserved by healthtrip.com</nz-footer>
+      </nz-content>
+    
+    </nz-layout>
+  </nz-layout>
+</div>

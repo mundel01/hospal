@@ -1,0 +1,50 @@
+<div class="sidenav" [ngClass]="{ dark: theme === 'dark', expanded: expanded }">
+  <div class="logo-container">
+
+    <span class="logo"></span>
+  </div>
+
+  <div class="nav">
+    <ul>
+      <ng-container *ngFor="let nav of appNavigations">
+        <ng-container *ngIf="nav.children?.length > 0">
+          <div class="child-container">
+            <li
+              (click)="toggleSubMenu(nav.label)"
+              [ngClass]="{ active: isChildActive(nav.label) }"
+            >
+            
+              <span nz-icon [nzType]="nav.icon" nzTheme="outline" class ="icon" ></span>
+              <span>{{ nav.label }}</span>
+              <span nz-icon nzType="down" nzTheme="outline" class="icon"></span>
+            </li>
+            <div class="child-nav" *ngIf="activeId === nav.label">
+              <ng-container *ngFor="let child of nav.children">
+                <li
+                  [routerLink]="child.url"
+                  routerLinkActive="active"
+                >
+                  <span nz-icon [nzType]="child.icon" nzTheme="outline" ></span>
+                  <span>{{ child.label }}</span>
+                </li>
+              </ng-container>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container >
+          <li
+            *ngIf="!nav.children"
+            [routerLink]="nav.url"
+            routerLinkActive="active"
+          >
+          <span nz-icon [nzType]="nav.icon" nzTheme="outline" ></span>
+          <span>{{ nav.label }}</span>
+          </li>
+        </ng-container>
+      </ng-container>
+    </ul>
+    
+  </div>
+
+</div> 
+

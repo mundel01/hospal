@@ -1,0 +1,59 @@
+@import "../../../../styles/variables";
+
+.header{
+  width: 100%;
+  height: $header-height;
+  position: fixed;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0px 2px 8px $p5;
+  background-color: $p100;
+  z-index: 10;
+  // padding: 0px 20px;
+
+  .header-toggle {
+    padding: 0px 20px;
+  }
+
+  .header-actions{
+    background-color: $p100;
+  }
+
+  .right{
+    .notification{
+      cursor: pointer;
+    }
+  }
+
+
+  .breadcrum-container{
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+
+    mat-icon{
+      margin-right: 5px;
+      // font-size: $font-size-xl;
+      cursor: pointer;
+    }
+
+    span{
+      margin-right: 5px;
+      // font-size: $font-size-base;
+      text-transform: capitalize;
+    }
+  }
+}
+
+
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}

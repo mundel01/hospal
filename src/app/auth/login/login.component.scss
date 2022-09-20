@@ -1,0 +1,70 @@
+@import "../../../styles/_variables";
+
+.loginContainer{
+    height: 100vh;
+    width: 100%;
+    background-image: url(../../../assets/images/login-bg.jpg);
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    .login-content-wrapper {
+      padding: 150px 0 0;
+
+      .loginContent{
+        height: fit-content;
+        display: flex;
+        gap: 50px;
+  
+      .login-graphic{
+          img{height: 350px;}
+          padding-top: 20px;
+      }
+  
+      .login-box{
+          background: #fff;
+          border-top: 0;
+          width: 360px;
+          -webkit-box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%);
+          -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,.15);
+          box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%);
+          padding: 40px;
+          height: fit-content;
+  
+      .inputFormField{
+        width: 100%;
+      }
+
+      .login-logo{
+          text-align: center;
+          margin-bottom: 20px;
+          img{width:140px}
+      }
+  
+      .title{text-align: center; padding-bottom:15px}
+  
+      .submitAction{
+          position: relative;
+  
+          .submitBtn{
+              position:absolute;
+              right: 0;
+              background-color: $color-3c;
+              border-color: $color-3c;
+              border-radius: 0;
+              -webkit-box-shadow: none;
+              -moz-box-shadow: none;
+              box-shadow: none;
+              border-width: 1px;
+              color: $white;
+              padding: 7px 14px;
+           }
+
+          }
+      }
+      }
+    }
+}

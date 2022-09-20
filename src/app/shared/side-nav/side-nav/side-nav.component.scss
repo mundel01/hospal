@@ -1,0 +1,93 @@
+@import "../../../../styles/_variables";
+
+.sidenav {
+  border: none;
+  // transition: width 0.3s linear;
+
+  .logo-container{
+    padding: 20px;
+    margin: 0 auto;
+  }
+
+  .nav {
+    height: calc(100vh - 150px);
+    overflow-y: auto;
+    margin-top: 32px;
+    padding: 0 12px;
+
+    // @include scrollbar($n50, transparent, 4px);
+
+    li {
+      padding: 0px 8px;
+      display: flex;
+      align-items: center;
+      outline: none;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 12px;
+      color: $n75;
+      overflow-x: hidden;
+      height: 40px;
+      transition: all 0.3s ease;
+
+      // padding: 0 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &.active {
+        color: $p100;
+      }
+
+      span {
+        margin-left: 20px;
+        flex-grow: 1;
+      }
+
+      .rotate {
+        transform: rotate(180deg);
+      }
+    }
+
+    .child-container {
+      box-sizing: content-box;
+      display: block;
+      margin: 0;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .child-nav {
+      display: flex;
+      flex-direction: column;
+      overflow: visible;
+      // visibility: hidden;
+      padding: 6px 24px;
+      display: block;
+      background-color: $n5;
+    }
+  }
+
+  // &.dark {
+  //   .nav {
+  //     // @include scrollbar($n25d, transparent, 4px);
+
+  //     li {
+  //       color: $n75d;
+
+  //       &.active {
+  //         color: $p100d;
+  //       }
+  //     }
+  //   }
+  // }
+}
+
+
